@@ -1,0 +1,141 @@
+:root{
+  --bg:#05070c;
+  --panel:#0c1020;
+  --line:#2a2f40;
+  --text:#eef2ff;
+  --muted:#a8b0c7;
+  --glass:rgba(0,0,0,0.55);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.wrap{max-width:1120px; margin:0 auto; padding:18px;}
+.topbar{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  margin-bottom:14px;
+}
+.brandTitle{font-size:22px; font-weight:800; letter-spacing:0.2px}
+.brandSub{font-size:13px; color:var(--muted); margin-top:4px}
+.status{font-size:13px; color:var(--muted); padding:6px 10px; border:1px solid var(--line); border-radius:10px}
+
+.cockpit{display:grid; grid-template-columns: 1fr 340px; gap:14px}
+@media (max-width:980px){ .cockpit{grid-template-columns:1fr} }
+
+.screen{
+  position:relative;
+  width:100%;
+  height:560px;
+  border:2px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:#000;
+}
+
+.space{
+  position:absolute; inset:0;
+  z-index:0;
+  opacity:1;
+}
+.stars{
+  position:absolute; inset:0;
+  background-image:url("assets/bg/stars.png");
+  background-repeat:repeat;
+  background-size:520px 520px;
+  animation: drift 18s linear infinite;
+  opacity:0.9;
+}
+.comet{
+  position:absolute;
+  width:420px; height:220px;
+  right:-60px; top:24px;
+  background-image:url("assets/bg/comet.png");
+  background-repeat:no-repeat;
+  background-size:contain;
+  opacity:0.65;
+  filter: blur(0px);
+}
+@keyframes drift{
+  from{transform:translateX(0)}
+  to{transform:translateX(-520px)}
+}
+
+.sceneImg{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:1;
+  opacity:0; /* toggled on when a scene uses a static image */
+  transition: opacity 180ms ease;
+}
+
+.portrait{
+  position:absolute;
+  left:18px;
+  bottom:142px;
+  height:320px;
+  max-width:46%;
+  object-fit:contain;
+  z-index:2;
+  display:none;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.55));
+}
+
+.dialogue{
+  position:absolute; left:0; right:0; bottom:0;
+  z-index:3;
+  background:var(--glass);
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding:12px 14px;
+  display:none;
+}
+
+.dialogueHeader{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:8px;
+}
+.speaker{font-weight:800}
+.chapterTag{color:var(--muted); font-size:12px}
+.dialogueBody{min-height:88px}
+.dialogueText{line-height:1.35; font-size:16px; white-space:pre-wrap}
+
+.dialogueControls{display:flex; gap:10px; margin-top:10px}
+
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px;
+}
+.panelRow{display:flex; gap:10px; margin-bottom:10px}
+.panelRow:last-child{margin-bottom:0}
+.btn{
+  border:1px solid var(--line);
+  background:#0b0f1e;
+  color:var(--text);
+  border-radius:12px;
+  padding:10px 12px;
+  cursor:pointer;
+  font-weight:700;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent}
+.panelBtn{flex:1}
+.panelBtn.warn{border-color:#5a3b3b}
+.panelBtn.ok{border-color:#2f4b3a}
+
+.note{
+  margin-top:12px;
+  padding:10px 10px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+.noteTitle{color:var(--text); font-weight:800; margin-bottom:6px}
