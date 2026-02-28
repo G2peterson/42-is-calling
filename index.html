@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>42 Is Calling, Book 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brandTitle">42 Is Calling</div>
+        <div class="brandSub">Book 1, Comet Run</div>
+      </div>
+      <div class="status" id="statusLine">Travel mode</div>
+    </header>
+
+    <section class="cockpit">
+      <div class="screen" id="screen">
+
+        <!-- Moving background layer -->
+        <div class="space" id="spaceLayer">
+          <div class="stars"></div>
+          <div class="comet"></div>
+        </div>
+
+        <!-- Scene image layer (static per chapter) -->
+        <img class="sceneImg" id="sceneImg" alt="Scene" />
+
+        <!-- Character portrait -->
+        <img class="portrait" id="portrait" alt="Character" />
+
+        <!-- Dialogue -->
+        <div class="dialogue" id="dialogue">
+          <div class="dialogueHeader">
+            <div class="speaker" id="speakerName"></div>
+            <div class="chapterTag" id="chapterTag"></div>
+          </div>
+          <div class="dialogueBody">
+            <div class="dialogueText" id="dialogueText"></div>
+          </div>
+          <div class="dialogueControls">
+            <button class="btn" id="nextBtn">Next</button>
+            <button class="btn ghost" id="signOffBtn">Sign Off</button>
+          </div>
+        </div>
+
+      </div>
+
+      <nav class="panel">
+        <div class="panelRow">
+          <button class="btn panelBtn" data-go="1">1, Selection</button>
+          <button class="btn panelBtn" data-go="2">2, Roommate</button>
+          <button class="btn panelBtn" data-go="3">3, Kepler</button>
+        </div>
+
+        <div class="panelRow">
+          <button class="btn panelBtn warn" data-go="4A">4A, Chaz</button>
+          <button class="btn panelBtn ok" data-go="4B">4B, Kaya</button>
+          <button class="btn panelBtn" data-go="6">6, Return</button>
+        </div>
+
+        <div class="panelRow">
+          <button class="btn panelBtn" data-go="5A">5A, Parade</button>
+          <button class="btn panelBtn" data-go="5B">5B, Quiet Win</button>
+          <button class="btn panelBtn" data-go="7">7, Epilogue</button>
+        </div>
+
+        <div class="panelRow">
+          <button class="btn panelBtn ghost" id="travelBtn">Travel Mode</button>
+          <button class="btn panelBtn ghost" id="clearBtn">Clear Screen</button>
+        </div>
+
+        <div class="note">
+          <div class="noteTitle">Fleet Note</div>
+          <div class="noteBody">
+            Ship <b>67</b> stays grounded, it waits for a pilot who can keep margin and still meet the goal.
+          </div>
+        </div>
+      </nav>
+    </section>
+  </main>
+
+  <script src="story.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
